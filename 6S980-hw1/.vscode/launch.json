@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Part 0: Introduction",
+            "type": "python",
+            "request": "launch",
+            "module": "scripts.0_introduction",
+            "justMyCode": true
+        },
+        {
+            "name": "Part 1: Projection",
+            "type": "python",
+            "request": "launch",
+            "module": "scripts.1_projection",
+            "justMyCode": true
+        },
+        {
+            "name": "Part 2: Dataset Puzzle",
+            "type": "python",
+            "request": "launch",
+            "module": "scripts.2_puzzle",
+            "justMyCode": true
+        },
+    ]
+}
