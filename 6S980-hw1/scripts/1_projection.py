@@ -24,7 +24,8 @@ if __name__ == "__main__":
 
     # Render the point cloud.
     images = render_point_cloud(vertices, c2w, k)
-
     # Save the resulting images.
+    import numpy as np
+    torch.set_printoptions(threshold=np.inf)
     for index, image in enumerate(images):
         save_image(image, f"outputs/1_projection/view_{index:0>2}.png")

@@ -80,6 +80,13 @@ def test_transform_cam2world():
         f32([0, 5.0, 0, 1]),
     )
 
+def test_transform_cam2world_batched():
+    t = torch.eye(4, dtype=torch.float32)
+    t[1, 3] = 5.0
+    assert torch.allclose(
+        transform_cam2world(f32([[0, 0, 0, 1],[0, 0, 0, 1]]), t),
+        f32([0, 5.0, 0, 1]),
+    )
 
 def test_project():
     xyz = f32([1, 1, 2, 1])
