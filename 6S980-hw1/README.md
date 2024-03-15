@@ -180,3 +180,9 @@ Each homework will have a bonus problem that we will use to allocate A+ grades. 
 Can you devise a way to automatically solve *everyone's* puzzles? Create a script that converts a folder of dataset `.zip` files to a folder of dataset `.zip` files in standardized (converted) format. If you attempt this problem, make sure to include your script's location and your general approach in your answer to `explanation_of_problem_solving_process` in `puzzle.py`.
 
 Also, if you manage to do this, please don't spoil everyone else's puzzles! :)
+
+## TODO
+Geometry functions 
+Batched Tests for self-written codes and batch-less code(a.k.a test for broad casting)
+相机成像的数学原理和数学过程，和代码的结合
+jaxtyping and python typing
