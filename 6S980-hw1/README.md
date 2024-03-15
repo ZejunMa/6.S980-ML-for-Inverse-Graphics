@@ -183,6 +183,7 @@ Also, if you manage to do this, please don't spoil everyone else's puzzles! :)
 
 ## TODO
 Geometry functions 
-Batched Tests for self-written codes and batch-less code(a.k.a test for broad casting)
-相机成像的数学原理和数学过程，和代码的结合
-jaxtyping and python typing
+Batched Tests for self-written codes and batch-less code(a.k.a test for broad casting)  
+相机成像的数学原理和数学过程，和代码的结合  
+jaxtyping and python typing  
+rendering文件渲染出来的图片有问题，还没有找到原因
