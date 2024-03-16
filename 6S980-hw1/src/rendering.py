@@ -14,11 +14,12 @@ def render_point_cloud(
     pixels on the canvas black.
     """
     canvas = torch.ones((extrinsics.shape[0], resolution[0], resolution[1])).type(torch.float32)
+
     for view_number in range(0, len(extrinsics)):
         # Transform vertices into camera space
-        w2c = torch.inverse(extrinsics[view_number])
-        points_c = transform_world2cam(homogenize_points(vertices), w2c)
-
+        # w2c = torch.inverse(extrinsics[view_number])
+        # points_c = transform_world2cam(homogenize_points(vertices), w2c)
+        points_c = transform_world2cam(homogenize_points(vertices), extrinsics[view_number])
         # project them onto the image plane
         projected = project(points_c, intrinsics[view_number])
         colored_map = (projected * 256).floor().type(torch.uint8)
