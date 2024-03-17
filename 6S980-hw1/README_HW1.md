@@ -1,3 +1,15 @@
+## Getting Started 
+### Setting Up the Environment
+Driver Version: 546.12  
+CUDA Version: 12.3
+Windows 11
+```
+conda create -n ML4IG python=3.8
+conda activate ML4IG
+pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu121
+python scripts.1_projection.py
+```
+
 ## TODO
 Batched Tests for self-written codes and batch-less code(a.k.a test for broad casting)  
 相机成像的数学原理和数学过程，和代码的结合  
