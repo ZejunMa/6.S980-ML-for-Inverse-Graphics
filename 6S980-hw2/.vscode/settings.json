@@ -1,0 +1,30 @@
+{
+    // Format using Black on save.
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none",
+    // Draw a ruler at Black's column width.
+    "editor.rulers": [
+        88,
+    ],
+    // Hide non-code files.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/__pycache__": true,
+        "**/venv": true,
+        "**/.ruff_cache": true,
+        "**/.pytest_cache": true,
+    },
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+}

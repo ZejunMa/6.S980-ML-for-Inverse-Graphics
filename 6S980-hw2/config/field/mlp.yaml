@@ -1,0 +1,8 @@
+name: mlp
+
+# Specify null as the number of positional encoding octaves if no positional encoding
+# should be applied. The null becomes None in Python.
+positional_encoding_octaves: 6
+
+num_hidden_layers: 2
+d_hidden: 128

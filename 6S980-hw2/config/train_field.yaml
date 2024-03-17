@@ -1,0 +1,14 @@
+# These defaults are interpreted by Hydra (a configuration framework) to refer to
+# sub-configurations in subfolders of the config folder.
+defaults:
+  - dataset: image
+  - field: mlp
+  - _self_
+
+num_iterations: 8192
+visualization_interval: 128
+learning_rate: 1e-2
+batch_size: 512
+remap_outputs: true
+
+output_path: outputs

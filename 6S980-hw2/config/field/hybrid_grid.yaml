@@ -1,0 +1,11 @@
+name: hybrid_grid
+
+d_grid_feature: 128
+
+grid:
+  side_length: 65
+
+mlp:
+  positional_encoding_octaves: null
+  num_hidden_layers: 2
+  d_hidden: 64

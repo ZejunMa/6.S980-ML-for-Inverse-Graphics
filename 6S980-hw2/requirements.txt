@@ -1,0 +1,11 @@
+einops
+jaxtyping
+beartype
+black
+matplotlib
+ruff
+scipy
+trimesh
+pytest
+tqdm
+hydra-core

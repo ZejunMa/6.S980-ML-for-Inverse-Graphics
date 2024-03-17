@@ -1,0 +1,7 @@
+name: nerf
+
+path: data/nerf_synthetic
+scene: lego
+repetitions_per_epoch: 96
+scale_factor: 0.15
+offset: [0.5, 0.5, 0.5]

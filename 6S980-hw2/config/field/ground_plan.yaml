@@ -1,0 +1,12 @@
+name: ground_plan
+
+d_grid_feature: 128
+positional_encoding_octaves: 8
+
+grid:
+  side_length: 65
+
+mlp:
+  positional_encoding_octaves: null
+  num_hidden_layers: 2
+  d_hidden: 64

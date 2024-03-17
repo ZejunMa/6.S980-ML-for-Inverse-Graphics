@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Train Field",
+            "type": "python",
+            "request": "launch",
+            "module": "scripts.train_field",
+            "justMyCode": true,
+            "args": [
+                "field=mlp",
+                "dataset=image",
+            ]
+        },
+        {
+            "name": "Train NeRF",
+            "type": "python",
+            "request": "launch",
+            "module": "scripts.train_nerf",
+            "justMyCode": true,
+            "args": []
+        },
+        {
+            "name": "Compare Fields",
+            "type": "python",
+            "request": "launch",
+            "module": "scripts.compare_fields",
+            "justMyCode": true,
+            "args": []
+        },
+    ]
+}
