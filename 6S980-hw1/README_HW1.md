@@ -4,6 +4,11 @@ Batched Tests for self-written codes and batch-less code(a.k.a test for broad ca
 jaxtyping and python typing
 
 ## Understanding 3D Scene and Camera
-[Camera Obscura (Dark Room)](https://www.bilibili.com/video/BV1R4411Q7AR/?spm_id_from=333.337.search-card.all.click&vd_source=75bfab15d56b58245875e3c16f6825ff)
+### Camera Obscura
+[Video 1](https://www.bilibili.com/video/BV1R4411Q7AR/?spm_id_from=333.337.search-card.all.click&vd_source=75bfab15d56b58245875e3c16f6825ff)  
+[Video 2](https://www.youtube.com/watch?v=qvwpDIlN25o)  
+[Video 3](https://www.youtube.com/watch?v=-cr5YWZSId0)
+
+
 
 
