@@ -181,3 +181,11 @@ Can you devise a way to automatically solve *everyone's* puzzles? Create a scrip
 
 Also, if you manage to do this, please don't spoil everyone else's puzzles! :)
 
+<<<<<<< HEAD
+=======
+## TODO
+Geometry functions 
+Batched Tests for self-written codes and batch-less code(a.k.a test for broad casting)  
+相机成像的数学原理和数学过程，和代码的结合  
+jaxtyping and python typing  
+>>>>>>> 8bf058d328381092fbf10d8c49f709cb6d9506f5
