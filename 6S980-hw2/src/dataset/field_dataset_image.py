@@ -2,15 +2,19 @@ from jaxtyping import Float
 from omegaconf import DictConfig
 from torch import Tensor
 
+from  torch.nn.functional import grid_sample
+
+import cv2
+
 from .field_dataset import FieldDataset
 
 
 class FieldDatasetImage(FieldDataset):
     def __init__(self, cfg: DictConfig) -> None:
         """Load the image in cfg.path into memory here."""
-
         super().__init__(cfg)
-        raise NotImplementedError("This is your homework.")
+        self.image = Tensor(cv2.imread(cfg.path).transpose((2, 0, 1))).unsqueeze(0)
+
 
     def query(
         self,
@@ -23,8 +27,12 @@ class FieldDatasetImage(FieldDataset):
         Pay special attention to grid_sample's expected input range for the grid
         parameter.
         """
-
-        raise NotImplementedError("This is your homework.")
+        coordinates = (coordinates * 2 - 1).unsqueeze(0).unsqueeze(2)
+        print(coordinates.shape)
+        sampled_colors = grid_sample(self.image, coordinates, mode='bilinear')
+        print(sampled_colors.shape)
+        output = sampled_colors.squeeze(0).squeeze(-1).permute(1, 0)
+        return output  # batch d_out
 
     @property
     def d_coordinate(self) -> int:
@@ -37,5 +45,8 @@ class FieldDatasetImage(FieldDataset):
     @property
     def grid_size(self) -> tuple[int, ...]:
         """Return a grid size that corresponds to the image's shape."""
+        return self.image.size()[1:]
 
-        raise NotImplementedError("This is your homework.")
+if __name__ == "__main__":
+    dataset = FieldDatasetImage(
+        DictConfig({"path": "data/tester.png"}))
