@@ -27,12 +27,12 @@ class FieldDatasetImage(FieldDataset):
         Pay special attention to grid_sample's expected input range for the grid
         parameter.
         """
-        coordinates = (coordinates * 2 - 1).unsqueeze(0).unsqueeze(2)
-        print(coordinates.shape)
-        sampled_colors = grid_sample(self.image, coordinates, mode='bilinear')
-        print(sampled_colors.shape)
-        output = sampled_colors.squeeze(0).squeeze(-1).permute(1, 0)
-        return output  # batch d_out
+        # print(self.image.size())  # size = torch.Size([1, 3, 128, 128])
+        coordinates = (coordinates * 2 - 1).unsqueeze(0).unsqueeze(1)
+        # print(coordinates.shape)  # size = torch.Size([1, 4, 1, 2])
+
+        sampled_colors = (grid_sample(self.image, coordinates, mode='bilinear', align_corners=True) / 255.0).squeeze(0).squeeze(1).flip(0).t()
+        return sampled_colors 
 
     @property
     def d_coordinate(self) -> int:
@@ -46,7 +46,3 @@ class FieldDatasetImage(FieldDataset):
     def grid_size(self) -> tuple[int, ...]:
         """Return a grid size that corresponds to the image's shape."""
         return self.image.size()[1:]
-
-if __name__ == "__main__":
-    dataset = FieldDatasetImage(
-        DictConfig({"path": "data/tester.png"}))
