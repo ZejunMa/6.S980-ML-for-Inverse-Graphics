@@ -1,10 +1,8 @@
+import cv2
+import torch.nn.functional as F
 from jaxtyping import Float
 from omegaconf import DictConfig
 from torch import Tensor
-
-from  torch.nn.functional import grid_sample
-
-import cv2
 
 from .field_dataset import FieldDataset
 
@@ -12,9 +10,9 @@ from .field_dataset import FieldDataset
 class FieldDatasetImage(FieldDataset):
     def __init__(self, cfg: DictConfig) -> None:
         """Load the image in cfg.path into memory here."""
+
         super().__init__(cfg)
         self.image = Tensor(cv2.imread(cfg.path).transpose((2, 0, 1))).unsqueeze(0)
-
 
     def query(
         self,
@@ -31,8 +29,19 @@ class FieldDatasetImage(FieldDataset):
         coordinates = (coordinates * 2 - 1).unsqueeze(0).unsqueeze(1)
         # print(coordinates.shape)  # size = torch.Size([1, 4, 1, 2])
 
-        sampled_colors = (grid_sample(self.image, coordinates, mode='bilinear', align_corners=True) / 255.0).squeeze(0).squeeze(1).flip(0).t()
-        return sampled_colors 
+        sampled_colors = (
+            (
+                F.grid_sample(
+                    self.image, coordinates, mode="bilinear", align_corners=True
+                )
+                / 255.0
+            )
+            .squeeze(0)
+            .squeeze(1)
+            .flip(0)
+            .t()
+        )
+        return sampled_colors
 
     @property
     def d_coordinate(self) -> int:

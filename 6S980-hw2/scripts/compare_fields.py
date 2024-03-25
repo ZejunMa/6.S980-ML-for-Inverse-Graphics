@@ -28,7 +28,7 @@ if __name__ == "__main__":
         key = re.sub(r"\W+", "", title)
         output_path = Path(f"compare/{key}")
         os.system(
-            f"python3 -m scripts.train_field {parameters} output_path={output_path} num_iterations={NUM_STEPS} visualization_interval={NUM_STEPS - 1} batch_size=512"
+            f"python -m scripts.train_field {parameters} output_path={output_path} num_iterations={NUM_STEPS} visualization_interval={NUM_STEPS - 1} batch_size=512"
         )
         image = to_tensor(Image.open(output_path / f"{NUM_STEPS - 1:0>6}.png"))
         image = add_label(image, title)
