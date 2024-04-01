@@ -8,7 +8,9 @@ with install_import_hook(("src",), ("beartype", "beartype")):
     from src.provided_code import get_bunny, plot_point_cloud
 
 if __name__ == "__main__":
+    # function logic: check existence -> create folder -> download obj -> read obj vertices ->
     vertices, _ = get_bunny()
+    # code for how to draw 3d point cloud
     plot_point_cloud(
         vertices,
         xlim=(-1.0, 1.0),

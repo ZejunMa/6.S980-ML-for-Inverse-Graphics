@@ -25,7 +25,7 @@ with install_import_hook(
 def train(cfg: DictConfig):
     # Set up the dataset, field, optimizer, and loss function.
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    dataset = get_field_dataset(cfg)
+    dataset = get_field_dataset(cfg)  # returns a dataset class
     field = get_field(cfg, dataset.d_coordinate, dataset.d_out).to(device)
     optimizer = torch.optim.Adam(
         field.parameters(),

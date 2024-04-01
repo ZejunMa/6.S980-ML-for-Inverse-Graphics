@@ -13,7 +13,7 @@ with install_import_hook(("src",), ("beartype", "beartype")):
 if __name__ == "__main__":
     vertices, faces = get_bunny()
 
-    # Generate a set of camera extrinsics for rendering.
+    # Generate a set of camera extrinsics for rendering. (code for generating camera extrinsics)
     NUM_STEPS = 16
     c2w = generate_spin(NUM_STEPS, 15.0, 2.0)
 
@@ -24,6 +24,7 @@ if __name__ == "__main__":
 
     # Render the point cloud.
     images = render_point_cloud(vertices, c2w, k)
+
     # Save the resulting images.
     import numpy as np
     torch.set_printoptions(threshold=np.inf)

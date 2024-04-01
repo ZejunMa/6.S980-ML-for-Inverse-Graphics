@@ -79,11 +79,12 @@ def get_bunny(
     download_file(bunny_url, bunny_path)
     vertices, faces = load_mesh(bunny_path, device=device)
 
-    # Center and rescale the bunny.
+    # Center and rescale the bunny. 用一个立方体将点云框住，平移立方体中心到坐标系中心
     maxima, _ = vertices.max(dim=0, keepdim=True)
     minima, _ = vertices.min(dim=0, keepdim=True)
     centroid = 0.5 * (maxima + minima)
     vertices -= centroid
+    # 三个方向等比例缩小立方体
     vertices /= (maxima - minima).max()
 
     return vertices, faces
