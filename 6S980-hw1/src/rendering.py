@@ -16,16 +16,18 @@ def render_point_cloud(
     canvas = torch.ones((extrinsics.shape[0], resolution[0], resolution[1])).type(torch.float32)
 
     for view_number in range(0, len(extrinsics)):
-        # Transform vertices into camera space
-        # w2c = torch.inverse(extrinsics[view_number])
-        # points_c = transform_world2cam(homogenize_points(vertices), w2c)
+        # Transform vertices in world space into camera space
         points_c = transform_world2cam(homogenize_points(vertices), extrinsics[view_number])
-        # project them onto the image plane
+        # project points camera space into image plane
         projected = project(points_c, intrinsics[view_number])
-        colored_map = (projected * 256).floor().type(torch.uint8)
+        # TODO: currently square image, arbitrary resolution to be fixed
+        projected[:, 0] = projected[:, 0] * resolution[0]
+        projected[:, 1] = projected[:, 1] * resolution[1]
+        colored_map = projected.floor().type(torch.int)
 
         for pixel in colored_map:
             canvas[view_number][pixel[1].item()][pixel[0].item()] = 0.0
+            # [view_number] = canvas[view_number].flip()
 
     return canvas
 

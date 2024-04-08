@@ -18,12 +18,13 @@ if __name__ == "__main__":
     c2w = generate_spin(NUM_STEPS, 15.0, 2.0)
 
     # Generate a set of camera intrinsics for rendering.
+    # 这里对相机内参进行了简化, 相机参考readme对于内参的矩阵解读
     k = torch.eye(3, dtype=torch.float32)
     k[:2, 2] = 0.5
     k = repeat(k, "i j -> b i j", b=NUM_STEPS)
 
     # Render the point cloud.
-    images = render_point_cloud(vertices, c2w, k)
+    images = render_point_cloud(vertices, c2w, k, resolution =(2048, 2048))
 
     # Save the resulting images.
     import numpy as np
